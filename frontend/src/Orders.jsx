@@ -52,11 +52,14 @@ export default function Orders() {
   // Filter and sort orders
   const filteredAndSortedOrders = orders
     .filter(o => {
+      if (!searchTerm.trim()) return true; // Show all if search is empty
       const searchLower = searchTerm.toLowerCase();
       return (
-        String(o['Order Number']).toLowerCase().includes(searchLower) ||
-        String(o['Customer Country']).toLowerCase().includes(searchLower) ||
-        String(o['Warehouse Country']).toLowerCase().includes(searchLower)
+        (o['Order Number'] && String(o['Order Number']).toLowerCase().includes(searchLower)) ||
+        (o['Customer Country'] && String(o['Customer Country']).toLowerCase().includes(searchLower)) ||
+        (o['Warehouse Country'] && String(o['Warehouse Country']).toLowerCase().includes(searchLower)) ||
+        (o['Customer City'] && String(o['Customer City']).toLowerCase().includes(searchLower)) ||
+        (o['Warehouse City'] && String(o['Warehouse City']).toLowerCase().includes(searchLower))
       );
     })
     .sort((a, b) => {
@@ -145,11 +148,19 @@ export default function Orders() {
             <Search className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
             <input
               type="text"
-              placeholder="Search by order number, customer or warehouse..."
+              placeholder="Search by order number, city or country..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-gray-200 bg-white focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all shadow-sm"
             />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                ✕
+              </button>
+            )}
           </div>
 
           {/* Sort */}

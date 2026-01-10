@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* Navbar */}
-      <header className="sticky top-2 z-50 bg-white border-b border-gray-200 shadow-sm">
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm backdrop-blur-md bg-white/90">
         <div className="max-w-[95%] 2xl:max-w-[1800px] mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             
@@ -48,7 +48,7 @@ function App() {
                 <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">
                   Supply Chain CO₂
                 </div>
-                <div className="text-xs text-gray-500 font-medium">Emissions Tracking Platform</div>
+                <div className="text-xs text-gray-500 font-medium">Sustainability Platform</div>
               </div>
             </NavLink>
 
