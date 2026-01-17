@@ -106,28 +106,17 @@ function Dashboard() {
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
         {/* Header Section */}
-        <header className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-gray-200/50 shadow-sm">
-          <div className="max-w-7xl mx-auto px-6 py-8">
-            <div className="flex items-center justify-between mb-6">
-              <div className="fade-in-up">
-                <h1 className="text-4xl font-black bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600 bg-clip-text text-transparent">
-                  Analytics Dashboard
-                </h1>
-                <p className="text-gray-600 mt-1 text-sm font-medium">Real-time supply chain sustainability insights</p>
-              </div>
-
-              <button
-                onClick={fetchData}
-                className="group flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 active:scale-95 slide-in-right"
-              >
-                <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
-                Refresh
-              </button>
+        <div className="max-w-7xl mx-auto px-4 pt-8">
+          <div className="flex justify-center">
+            <div className="fade-in-up relative w-full max-w-3xl rounded-2xl bg-gradient-to-r from-blue-200 to-emerald-100 backdrop-blur shadow-lg border border-slate-200/80 px-6 py-5 flex flex-col items-center text-center gap-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-emerald-600 to-cyan-600">
+                <Activity className="w-4 h-4" /> Live overview
+              </span>
+              <h1 className="text-2xl font-semibold text-slate-900">Analytics Dashboard</h1>
+              <p className="text-slate-500 text-sm">Real-time supply chain sustainability insights</p>
             </div>
-
-           
           </div>
-        </header>
+        </div>
 
         <main className="max-w-7xl mx-auto px-6 py-8">
           {error && <ErrorMessage message={error} />}
@@ -254,8 +243,21 @@ function Dashboard() {
                   Go to Calculator
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
+
+                
               </div>
+
+              
             </div>
+            <div className="px-4 py-6 flex items-center justify-center">
+            <button
+                onClick={fetchData}
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 active:scale-95 slide-in-right"
+              >
+                <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                Refresh
+              </button>
+              </div>
           </section>
         </main>
       </div>
